@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Mercado da Copa - Loja de itens esportivos da Copa do Mundo. Explore camisas de seleções, bonés e casacos.">
+    <meta name="theme-color" content="#0A0A0A">
+    <title>Compras - Mercado da Copa 🏆</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🏆</div>
+                <div class="logo-text">Mercado <span>da Copa</span></div>
+            </a>
+            <div class="header-actions">
+                <button class="header-btn" id="btn-cart" aria-label="Carrinho">
+                    🛒
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <a href="profile.html" class="header-btn" id="btn-profile" aria-label="Perfil">
+                    👤
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Title -->
+    <section class="container" style="padding-top: 20px;">
+        <h1 class="section-title" style="font-size: 1.8rem;">🛍️ Loja</h1>
+    </section>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <div class="search-input-wrapper">
+            <span class="search-icon">🔍</span>
+            <input 
+                type="text" 
+                class="search-input" 
+                id="search-input" 
+                placeholder="Buscar camisas, bonés, casacos..."
+                autocomplete="off"
+            >
+        </div>
+        <button class="filter-btn" id="filter-toggle" aria-label="Filtros">
+            ⚙️
+        </button>
+    </div>
+
+    <!-- Filter Chips -->
+    <div class="filters-row" id="filters-row">
+        <button class="filter-chip active" data-category="all">⚽ Todos</button>
+        <button class="filter-chip" data-category="camisa">👕 Camisas</button>
+        <button class="filter-chip" data-category="bone">🧢 Bonés</button>
+        <button class="filter-chip" data-category="casaco">🧥 Casacos</button>
+        <button class="filter-chip" data-sort="price_asc">💰 Menor Preço</button>
+        <button class="filter-chip" data-sort="price_desc">💎 Maior Preço</button>
+    </div>
+
+    <!-- Products Grid -->
+    <section class="container">
+        <div class="flex justify-between items-center mb-2">
+            <p id="results-count" style="font-size: 0.85rem; color: var(--text-muted);">Carregando produtos...</p>
+        </div>
+        <div id="products-container" class="products-grid">
+            <!-- Products loaded dynamically -->
+            <div class="skeleton skeleton-card"></div>
+            <div class="skeleton skeleton-card"></div>
+            <div class="skeleton skeleton-card"></div>
+            <div class="skeleton skeleton-card"></div>
+            <div class="skeleton skeleton-card"></div>
+            <div class="skeleton skeleton-card"></div>
+        </div>
+    </section>
+
+    <div style="height: 30px;"></div>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cart-overlay">
+        <div class="cart-drawer" id="cart-drawer">
+            <div class="cart-header">
+                <h2>🛒 Carrinho</h2>
+                <button class="cart-close" id="cart-close" aria-label="Fechar carrinho">✕</button>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items rendered dynamically -->
+            </div>
+            <div class="cart-footer" id="cart-footer">
+                <div class="cart-total">
+                    <span class="cart-total-label">Total</span>
+                    <span class="cart-total-value" id="cart-total-value">R$ 0,00</span>
+                </div>
+                <button class="btn btn-primary btn-full" id="btn-checkout">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div class="modal-overlay" id="product-modal">
+        <div class="modal">
+            <span class="modal-handle"></span>
+            <div class="modal-header">
+                <h2 id="modal-product-title">Detalhes do Produto</h2>
+                <button class="cart-close" id="modal-close" aria-label="Fechar">✕</button>
+            </div>
+            <div class="modal-body" id="modal-product-body">
+                <!-- Product details rendered dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navbar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="index.html" class="nav-item">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">Início</span>
+            </a>
+            <a href="shop.html" class="nav-item active">
+                <span class="nav-icon">🛍️</span>
+                <span class="nav-label">Compras</span>
+            </a>
+            <a href="trocas.html" class="nav-item">
+                <span class="nav-icon">🔄</span>
+                <span class="nav-label">Trocas</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">👤</span>
+                <span class="nav-label">Perfil</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

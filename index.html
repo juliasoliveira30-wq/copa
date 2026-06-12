@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Mercado da Copa - Brechó de itens esportivos da Copa do Mundo. Compre, venda e troque camisas de seleções, bonés e casacos.">
+    <meta name="theme-color" content="#0A0A0A">
+    <title>Mercado da Copa 🏆 - Brechó Esportivo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🏆</div>
+                <div class="logo-text">Mercado <span>da Copa</span></div>
+            </a>
+            <div class="header-actions">
+                <button class="header-btn" id="btn-cart" aria-label="Carrinho">
+                    🛒
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <a href="profile.html" class="header-btn" id="btn-profile" aria-label="Perfil">
+                    👤
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="hero-title animate-fade-in-up">
+            O Brechó dos<br><span class="gold">Campeões</span> ⚽
+        </h1>
+        <p class="hero-subtitle animate-fade-in-up delay-1">
+            Compre, venda e troque itens esportivos exclusivos da Copa do Mundo
+        </p>
+        <div class="hero-stats animate-fade-in-up delay-2">
+            <div class="stat">
+                <div class="stat-number" id="stat-products">8</div>
+                <div class="stat-label">Produtos</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number" id="stat-teams">5</div>
+                <div class="stat-label">Seleções</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number" id="stat-categories">3</div>
+                <div class="stat-label">Categorias</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <h2 class="section-title">Categorias</h2>
+        <div class="categories-grid" id="categories-grid">
+            <div class="category-card active" data-category="all">
+                <div class="category-icon">⚽</div>
+                <div class="category-name">Todos</div>
+            </div>
+            <div class="category-card" data-category="camisa">
+                <div class="category-icon">👕</div>
+                <div class="category-name">Camisas</div>
+            </div>
+            <div class="category-card" data-category="bone">
+                <div class="category-icon">🧢</div>
+                <div class="category-name">Bonés</div>
+            </div>
+            <div class="category-card" data-category="casaco">
+                <div class="category-icon">🧥</div>
+                <div class="category-name">Casacos</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="container">
+        <div class="flex justify-between items-center mb-2">
+            <h2 class="section-title" style="margin-bottom:0">Destaques</h2>
+            <a href="shop.html" class="btn btn-sm btn-secondary">Ver todos →</a>
+        </div>
+        <div id="featured-products" class="products-grid">
+            <!-- Products loaded dynamically -->
+            <div class="skeleton skeleton-card"></div>
+            <div class="skeleton skeleton-card"></div>
+            <div class="skeleton skeleton-card"></div>
+            <div class="skeleton skeleton-card"></div>
+        </div>
+    </section>
+
+    <div style="height: 30px;"></div>
+
+    <!-- Promo Banner -->
+    <section class="container">
+        <div class="promo-banner" style="background: var(--accent-gradient); border-radius: var(--radius); padding: 24px; text-align: center; position: relative; overflow: hidden;">
+            <div style="position: relative; z-index: 1;">
+                <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">🏟️ Venda seus itens!</h3>
+                <p style="font-size: 0.85rem; opacity: 0.9; margin-bottom: 16px;">Tem camisas, bonés ou casacos da Copa? Cadastre e venda no Mercado!</p>
+                <a href="profile.html" class="btn btn-sm" style="background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3);">Começar a vender</a>
+            </div>
+        </div>
+    </section>
+
+    <div style="height: 30px;"></div>
+
+    <!-- Exchange Promo Banner -->
+    <section class="container">
+        <div style="background: linear-gradient(135deg, rgba(27, 67, 50, 0.8), rgba(45, 106, 79, 0.8)); border-radius: var(--radius); padding: 24px; text-align: center; position: relative; overflow: hidden; border: 1px solid rgba(64, 145, 108, 0.3);">
+            <div style="position: relative; z-index: 1;">
+                <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;">🔄 Troque suas Camisas Antigas!</h3>
+                <p style="font-size: 0.85rem; opacity: 0.9; margin-bottom: 16px;">Tem camisas de seleções paradas no armário? Troque por créditos ou outras camisas clássicas da Copa!</p>
+                <a href="trocas.html" class="btn btn-sm" style="background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3);">Ver programa de trocas →</a>
+            </div>
+        </div>
+    </section>
+
+    <div style="height: 30px;"></div>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cart-overlay">
+        <div class="cart-drawer" id="cart-drawer">
+            <div class="cart-header">
+                <h2>🛒 Carrinho</h2>
+                <button class="cart-close" id="cart-close" aria-label="Fechar carrinho">✕</button>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items rendered dynamically -->
+            </div>
+            <div class="cart-footer" id="cart-footer">
+                <div class="cart-total">
+                    <span class="cart-total-label">Total</span>
+                    <span class="cart-total-value" id="cart-total-value">R$ 0,00</span>
+                </div>
+                <button class="btn btn-primary btn-full" id="btn-checkout">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navbar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="index.html" class="nav-item active">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">Início</span>
+            </a>
+            <a href="shop.html" class="nav-item">
+                <span class="nav-icon">🛍️</span>
+                <span class="nav-label">Compras</span>
+            </a>
+            <a href="trocas.html" class="nav-item">
+                <span class="nav-icon">🔄</span>
+                <span class="nav-label">Trocas</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <span class="nav-icon">👤</span>
+                <span class="nav-label">Perfil</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

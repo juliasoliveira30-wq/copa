@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Mercado da Copa - Perfil do usuário. Gerencie seus itens esportivos e histórico de compras.">
+    <meta name="theme-color" content="#0A0A0A">
+    <title>Perfil - Mercado da Copa 🏆</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">🏆</div>
+                <div class="logo-text">Mercado <span>da Copa</span></div>
+            </a>
+            <div class="header-actions">
+                <button class="header-btn" id="btn-cart" aria-label="Carrinho">
+                    🛒
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Auth Section (shown when logged out) -->
+    <div id="auth-section" class="page-section">
+        <div class="auth-container">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <div style="font-size: 3rem; margin-bottom: 12px;">⚽</div>
+                <h1 class="auth-title">Entre no jogo!</h1>
+                <p class="auth-subtitle">Faça login ou cadastre-se para comprar e vender itens da Copa</p>
+            </div>
+            <div class="auth-card">
+                <!-- Auth Tabs -->
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login" id="tab-login">Entrar</button>
+                    <button class="auth-tab" data-tab="register" id="tab-register">Cadastrar</button>
+                </div>
+
+                <!-- Login Form -->
+                <form id="login-form" class="auth-form">
+                    <div class="form-group">
+                        <label class="form-label" for="login-email">E-mail</label>
+                        <input type="email" class="form-input" id="login-email" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="login-password">Senha</label>
+                        <input type="password" class="form-input" id="login-password" placeholder="••••••••" required minlength="6">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" id="btn-login">
+                        Entrar ⚡
+                    </button>
+                </form>
+
+                <!-- Register Form -->
+                <form id="register-form" class="auth-form hidden">
+                    <div class="form-group">
+                        <label class="form-label" for="register-name">Nome</label>
+                        <input type="text" class="form-input" id="register-name" placeholder="Seu nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="register-email">E-mail</label>
+                        <input type="email" class="form-input" id="register-email" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="register-password">Senha</label>
+                        <input type="password" class="form-input" id="register-password" placeholder="Mínimo 6 caracteres" required minlength="6">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" id="btn-register">
+                        Criar conta 🚀
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Dashboard (shown when logged in) -->
+    <div id="profile-section" class="page-section hidden">
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <div class="profile-avatar" id="profile-avatar">👤</div>
+            <h1 class="profile-name" id="profile-name">Usuário</h1>
+            <p class="profile-email" id="profile-email">email@exemplo.com</p>
+            <div class="profile-stats">
+                <div class="stat">
+                    <div class="profile-stat-number" id="profile-products-count">0</div>
+                    <div class="profile-stat-label">Produtos</div>
+                </div>
+                <div class="stat">
+                    <div class="profile-stat-number" id="profile-orders-count">0</div>
+                    <div class="profile-stat-label">Compras</div>
+                </div>
+                <div class="stat">
+                    <div class="profile-stat-number" id="profile-total-spent">R$ 0</div>
+                    <div class="profile-stat-label">Investido</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Quick Actions -->
+        <div class="profile-section">
+            <h2 class="profile-section-title">⚡ Ações rápidas</h2>
+            <div class="profile-menu-item" id="btn-add-product">
+                <div class="profile-menu-icon">📦</div>
+                <div class="profile-menu-text">
+                    <div class="profile-menu-title">Cadastrar Produto</div>
+                    <div class="profile-menu-desc">Venda camisas, bonés e casacos da Copa</div>
+                </div>
+                <span class="profile-menu-arrow">→</span>
+            </div>
+            <a href="shop.html" class="profile-menu-item">
+                <div class="profile-menu-icon">🛍️</div>
+                <div class="profile-menu-text">
+                    <div class="profile-menu-title">Ir às Compras</div>
+                    <div class="profile-menu-desc">Explore itens esportivos exclusivos</div>
+                </div>
+                <span class="profile-menu-arrow">→</span>
+            </a>
+        </div>
+
+        <!-- My Products -->
+        <div class="profile-section">
+            <h2 class="profile-section-title">📦 Meus Produtos</h2>
+            <div id="my-products-list">
+                <div class="empty-state">
+                    <div class="empty-state-icon">📦</div>
+                    <div class="empty-state-text">Você ainda não cadastrou nenhum produto</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Order History -->
+        <div class="profile-section">
+            <h2 class="profile-section-title">📋 Histórico de Compras</h2>
+            <div id="order-history">
+                <div class="empty-state">
+                    <div class="empty-state-icon">🧾</div>
+                    <div class="empty-state-text">Nenhuma compra realizada ainda</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logout -->
+        <div class="container" style="margin-bottom: 30px;">
+            <button class="btn btn-danger btn-full" id="btn-logout">
+                Sair da conta 🚪
+            </button>
+        </div>
+    </div>
+
+    <!-- Add Product Modal -->
+    <div class="modal-overlay" id="add-product-modal">
+        <div class="modal">
+            <span class="modal-handle"></span>
+            <div class="modal-header">
+                <h2>📦 Novo Produto</h2>
+                <button class="cart-close" id="add-product-close" aria-label="Fechar">✕</button>
+            </div>
+            <div class="modal-body">
+                <form id="add-product-form">
+                    <div class="form-group">
+                        <label class="form-label" for="product-name">Nome do produto</label>
+                        <input type="text" class="form-input" id="product-name" placeholder="Ex: Camisa Brasil 2002" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="product-description">Descrição</label>
+                        <textarea class="form-input form-textarea" id="product-description" placeholder="Descreva o estado, tamanho, ano..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="product-category">Categoria</label>
+                        <select class="form-input form-select" id="product-category" required>
+                            <option value="">Selecione...</option>
+                            <option value="camisa">👕 Camisa</option>
+                            <option value="bone">🧢 Boné</option>
+                            <option value="casaco">🧥 Casaco</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="product-team">Seleção / Time</label>
+                        <input type="text" class="form-input" id="product-team" placeholder="Ex: Brasil, Argentina, FIFA...">
+                    </div>
+                    <div class="flex gap-2">
+                        <div class="form-group" style="flex:1">
+                            <label class="form-label" for="product-price">Preço (R$)</label>
+                            <input type="number" class="form-input" id="product-price" placeholder="0,00" step="0.01" min="0.01" required>
+                        </div>
+                        <div class="form-group" style="flex:1">
+                            <label class="form-label" for="product-stock">Estoque</label>
+                            <input type="number" class="form-input" id="product-stock" placeholder="1" min="1" value="1" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="product-image">URL da imagem (opcional)</label>
+                        <input type="url" class="form-input" id="product-image" placeholder="https://...">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        Cadastrar Produto 🚀
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cart-overlay">
+        <div class="cart-drawer" id="cart-drawer">
+            <div class="cart-header">
+                <h2>🛒 Carrinho</h2>
+                <button class="cart-close" id="cart-close" aria-label="Fechar carrinho">✕</button>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items rendered dynamically -->
+            </div>
+            <div class="cart-footer" id="cart-footer">
+                <div class="cart-total">
+                    <span class="cart-total-label">Total</span>
+                    <span class="cart-total-value" id="cart-total-value">R$ 0,00</span>
+                </div>
+                <button class="btn btn-primary btn-full" id="btn-checkout">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navbar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="index.html" class="nav-item">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">Início</span>
+            </a>
+            <a href="shop.html" class="nav-item">
+                <span class="nav-icon">🛍️</span>
+                <span class="nav-label">Compras</span>
+            </a>
+            <a href="trocas.html" class="nav-item">
+                <span class="nav-icon">🔄</span>
+                <span class="nav-label">Trocas</span>
+            </a>
+            <a href="profile.html" class="nav-item active">
+                <span class="nav-icon">👤</span>
+                <span class="nav-label">Perfil</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
